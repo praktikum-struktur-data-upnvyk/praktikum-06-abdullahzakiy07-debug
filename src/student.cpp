@@ -99,13 +99,15 @@ bool dequeue(Queue& q, int& nomor) {
         return false;
     }
 
+    
+    Node* temp = q.depan;
+    nomor = temp->data;
+    q.depan = temp->next;
+
     if (q.depan == nullptr)
     {
         q.belakang = nullptr;
     }
-    
-    Node* temp = q.depan;
-    q.depan = temp->next;
     delete temp;
     return true;
     
